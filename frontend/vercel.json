@@ -1,11 +1,21 @@
 {
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "dist" }
-      }
-    ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-  }
-  
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "cache": {
+    "include": [
+      "node_modules",
+      "dist",
+      "public"
+    ]
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ]
+}
