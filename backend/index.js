@@ -19,7 +19,9 @@ mongoose
   })
 
 const app = express()
-
+app.get('/',(req,res)=>{
+  res.send("Backend working");
+})
 // to make input as json
 app.use(express.json())
 app.use(cookieParser())
